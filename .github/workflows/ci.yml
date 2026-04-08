@@ -1,0 +1,24 @@
+name: Workshop CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  workshop-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: 1. Install dependencies
+        run: npm install  
+
+      - name: 2. Run tests
+        run: npm test     
+
+      - name: 3. Run build
+        run: npm run build 
